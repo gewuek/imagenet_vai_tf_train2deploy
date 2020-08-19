@@ -23,7 +23,7 @@ python3 tar_image.py
 ```
 python3 ./freeze_model.py
 ```
-2. Edit the custom_network_input_fn.py to make sure you set the right adress for ***calib_image_dir*** and ***calib_image_list***.<br />
+2. Edit the custom_network_input_fn.py to make sure you set the right address for ***calib_image_dir*** and ***calib_image_list***. Like the one on my test environment.<br />
 ```
 calib_image_dir = "./ILSVRC2012_img_val/"
 calib_image_list = "./calibration.txt"
