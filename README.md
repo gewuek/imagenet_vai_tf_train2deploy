@@ -2,17 +2,18 @@
 This tutorial descibe about how to train a custom network from imagenet dataset and deploy it on ZCU102 via Vitis AI<br />
 
 ### Download and handle ImageNet data<br />
-1. Download the imagenet training dataset and validation data set from http://academictorrents.com/collection/imagenet-2012 or http://www.image-net.org/download.php
-2. Uncompress the two tar files:
+1. Git clone this repository to your local machine with Vitis AI 1.2 installed.
+2. Download the imagenet training dataset and validation data set from http://academictorrents.com/collection/imagenet-2012 or http://www.image-net.org/download.php. Move these 2 files to the ***imagenet_vai_tf_train2deploy/x86/*** folder
+3. Uncompress the two tar files:
 ```
 tar -xvf ILSVRC2012_img_train.tar
 tar -xvf ILSVRC2012_img_val.tar
 ```
-3. It is a little complex to handle the training dataset, copy the ***x86/tar_image.py*** file into ***ILSVRC2012_img_train*** folder and run command:
+4. It is a little complex to handle the training dataset, copy the ***x86/tar_image.py*** file into ***imagenet_vai_tf_train2deploy/x86/ILSVRC2012_img_train/*** folder and run the script inside the ***ILSVRC2012_img_train*** folder:
 ```
 python3 tar_image.py
 ```
-4. 
+5. 
 
 ###  Train data<br />
 
