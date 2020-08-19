@@ -3,12 +3,14 @@ This tutorial descibe about how to train a custom network from imagenet dataset 
 It is full imagenet_2012 dataset so some of the operations would take long time.
 
 ### Download and handle ImageNet data<br />
-1. Git clone this repository to your local machine with Vitis AI 1.2 installed.
+1. Git clone this repository to your local machine with Vitis AI 1.2 installed, I would suggest you to do that inside the Vitis-AI folder so that the ***imagenet_vai_tf_train2deploy*** folder would be inside the docker workspace. e.g. Mine is ***/home/wuxian/wu_software/Vitis-AI/wu_project/imagenet_vai_tf_train2deploy/***.
 2. Download the imagenet training dataset and validation data set from http://academictorrents.com/collection/imagenet-2012 or http://www.image-net.org/download.php. Move these 2 files to the ***imagenet_vai_tf_train2deploy/x86/*** folder
 3. Uncompress the two tar files:
 ```
-tar -xvf ILSVRC2012_img_train.tar
-tar -xvf ILSVRC2012_img_val.tar
+mkdir ILSVRC2012_img_train
+mkdir ILSVRC2012_img_val
+tar -xvf ILSVRC2012_img_train.tar -C ./ILSVRC2012_img_train
+tar -xvf ILSVRC2012_img_val.tar -C ./ILSVRC2012_img_val
 ```
 4. It is a little complex to handle the training dataset, copy the ***x86/tar_image.py*** file into ***imagenet_vai_tf_train2deploy/x86/ILSVRC2012_img_train/*** folder and run the script inside the ***ILSVRC2012_img_train*** folder:
 ```
@@ -39,7 +41,7 @@ calib_image_list = "./calibration.txt"
 ```
 ./dnnc.sh
 ```
-5. Check the generated ELF file from ***./resnet50/dpu_resnet50_0.elf***.<br />
+5. Check the generated ELF file from ***imagenet_vai_tf_train2deploy/x86/resnet50/dpu_resnet50_0.elf***.<br />
 
 ### Deploy model on ZCU102 board<br />
 
