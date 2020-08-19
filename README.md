@@ -14,6 +14,30 @@ python3 tar_image.py
 ```
 4. 
 
+###  Train data<br />
+
+
+### Quantize the model<br />
+
+1. Freeze the model and change to pb file.<br />
+```
+python3 ./freeze_model.py
+```
+2. Edit the custom_network_input_fn.py to make sure you set the right adress for ***calib_image_dir*** and ***calib_image_list***.<br />
+```
+calib_image_dir = "./ILSVRC2012_img_val/"
+calib_image_list = "./calibration.txt"
+```
+
+3. Quantize the model.<br />
+```
+./decent_q.sh
+```
+4. Compile the quantized model to get the DPU ELF.<br />
+```
+./dnnc.sh
+```
+5. Check the generated ELF file from ***./resnet50/dpu_resnet50_0.elf***.<br />
 
 
 
