@@ -18,7 +18,7 @@ python3 tar_image.py
 ###  Train data<br />
 
 
-### Quantize the model<br />
+### Quantize and compile the model<br />
 
 1. Freeze the model and change to pb file.<br />
 ```
@@ -39,6 +39,10 @@ calib_image_list = "./calibration.txt"
 ./dnnc.sh
 ```
 5. Check the generated ELF file from ***./resnet50/dpu_resnet50_0.elf***.<br />
+
+### Deploy model on ZCU102 board<br />
+
+1. Copy 
 
 
 
