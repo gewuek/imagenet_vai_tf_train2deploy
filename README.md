@@ -1,5 +1,6 @@
 # imagenet_vai_tf_train2deploy<br />
 This tutorial descibe about how to train a custom network from imagenet dataset and deploy it on ZCU102 via Vitis AI<br />
+It is full imagenet_2012 dataset so some of the operations would take long time.
 
 ### Download and handle ImageNet data<br />
 1. Git clone this repository to your local machine with Vitis AI 1.2 installed.
