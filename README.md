@@ -133,6 +133,8 @@ The running result would like below:<br />
 https://www.xilinx.com/support/documentation/sw_manuals/ai_inference/v1_6/ug1327-dnndk-user-guide.pdf<br />
 https://github.com/Xilinx/Vitis-AI<br />
 https://github.com/gewuek/flower_classification_vai_tf_dataset<br />
-
+https://github.com/sony/nnabla-examples/tree/master/imagenet-classification<br />
+https://github.com/keras-team/keras-applications/tree/1.0.8/keras_applications<br />
+https://github.com/gewuek/flower_classification_vai_tf_dataset
 
 
