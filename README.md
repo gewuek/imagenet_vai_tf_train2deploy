@@ -36,8 +36,9 @@ python3 ./load_data.py
 ```
 2. Select the ***vitis-ai-tensorflow*** environment.<br />
 ```
-
+conda activate vitis-ai-tensorflow
 ```
+***Or you can just install the GPU version of TensorFlow 1.15 at host following this [TensorFlow GPU install tutorial](https://www.tensorflow.org/install/gpu)***<br />
 3. Go to your ***/workspace/.../imagenet_vai_tf_train2deploy/x86*** floder, and edit the ***train_data.py*** file. Make sure the ***VAL_IMAGE_DIR*** is set properly.<br />
 ```
 VAL_IMAGE_DIR = './ILSVRC2012_img_val/'
