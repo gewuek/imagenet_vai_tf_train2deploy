@@ -91,8 +91,25 @@ calib_image_list = "./calibration.txt"
 
 ### Deploy model on ZCU102 board<br />
 
-1. Download the [Xilinx released VAI 1.2 ZCU102 Image](https://www.xilinx.com/bin/public/openDownload?filename=xilinx-zcu102-dpu-v2020.1-v1.2.0.img.gz) and burn on a SD card then boot up ZCU102 board with this SD card.
-2. 
+1. Download the [Xilinx released VAI 1.2 ZCU102 Image](https://www.xilinx.com/bin/public/openDownload?filename=xilinx-zcu102-dpu-v2020.1-v1.2.0.img.gz) and burn on a SD card then boot up ZCU102 board with this SD card.<br />
+2. Download the [vitis-ai_v1.2_dnndk_sample_img.tar.gz](https://www.xilinx.com/bin/public/openDownload?filename=vitis-ai_v1.2_dnndk_sample_img.tar.gz) and transfer the package to ZCU102 using SCP command.<br />
+3. Uncompress the folder:<br />
+```
+tar -xzvf vitis-ai_v1.2_dnndk_sample_img.tar.gz
+```
+4. Go to the uncompressed folder ***vitis_ai_dnndk_samples*** and transfer ***imagenet_vai_tf_train2deploy/arm/tf_resnet50/*** folder from host to ***vitis_ai_dnndk_samples** folder on board.
+5. Go to ***tf_reset50*** and run the following commmand to build the application:
+```
+./build.sh zcu102
+```
+6. Connect board with SSH and enable X11 forward. Run following command to check the result:
+```
+./tf_resnet50
+```
+The running result would like below:<br />
+![renet50_test_result.PNG](/pic_for_readme/renet50_test_result.PNG)<br />
+
+***I don't take much time on the training and comparing the difference between different APIs from training to quantization and deployment. So the result are not in a high accuracy. And you could use other ConvNet to replace the ResNet50 and modify the pre-process functions if necessary***
 
 
 
@@ -114,3 +131,5 @@ calib_image_list = "./calibration.txt"
 
 ### Reference
 https://www.xilinx.com/support/documentation/sw_manuals/ai_inference/v1_6/ug1327-dnndk-user-guide.pdf
+https://github.com/Xilinx/Vitis-AI
+
