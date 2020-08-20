@@ -87,11 +87,12 @@ calib_image_list = "./calibration.txt"
 ```
 ./dnnc.sh
 ```
-5. Check the generated ELF file from ***imagenet_vai_tf_train2deploy/x86/resnet50/dpu_resnet50_0.elf***.<br />
+5. Copy the generated ELF file from ***imagenet_vai_tf_train2deploy/x86/resnet50/dpu_resnet50_0.elf*** to ***imagenet_vai_tf_train2deploy/arm/tf_resnet50/model_for_zcu102/*** folder.<br />
 
 ### Deploy model on ZCU102 board<br />
 
-1. Copy 
+1. Download the [Xilinx released VAI 1.2 ZCU102 Image](https://www.xilinx.com/bin/public/openDownload?filename=xilinx-zcu102-dpu-v2020.1-v1.2.0.img.gz) and burn on a SD card then boot up ZCU102 board with this SD card.
+2. 
 
 
 
