@@ -129,7 +129,10 @@ The running result would like below:<br />
 
 
 
-### Reference
-https://www.xilinx.com/support/documentation/sw_manuals/ai_inference/v1_6/ug1327-dnndk-user-guide.pdf
-https://github.com/Xilinx/Vitis-AI
+### Reference<br />
+https://www.xilinx.com/support/documentation/sw_manuals/ai_inference/v1_6/ug1327-dnndk-user-guide.pdf<br />
+https://github.com/Xilinx/Vitis-AI<br />
+https://github.com/gewuek/flower_classification_vai_tf_dataset<br />
+
+
 
