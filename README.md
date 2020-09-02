@@ -43,7 +43,7 @@ conda activate vitis-ai-tensorflow
 ```
 VAL_IMAGE_DIR = './ILSVRC2012_img_val/'
 ```
-4. You can also modify the traing parameters if necessary:<br />
+4. You can also modify the training parameters if necessary:<br />
 ```
 BATCH_SIZE = 128
 ds = image_label_ds.shuffle(buffer_size=5000)
