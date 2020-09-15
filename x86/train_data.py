@@ -28,7 +28,8 @@ val_image_cnt = 0
 
 mean = [103.939, 116.779, 123.68]
 
-mean_array = np.zeros((224, 224, 3))
+# mean_array = np.zeros((224, 224, 3))
+mean_array = np.zeros((299, 299, 3))
 
 mean_array[..., 0] = mean[2]
 mean_array[..., 1] = mean[1]
@@ -65,7 +66,8 @@ def _read_img_function(imagepath):
     image = tf.read_file(imagepath)
     image_tensor = tf.image.decode_jpeg(image, channels=3)
     #image_tensor = image_tensor[..., ::-1] # Need to remove for self training
-    image_resize = tf.image.resize_images(image_tensor, [224, 224])
+    #image_resize = tf.image.resize_images(image_tensor, [224, 224])
+    image_resize = tf.image.resize_images(image_tensor, [299, 299])
     red, green, blue = tf.split(axis=2, num_or_size_splits=3, value=image_resize)    
     image_bgr = tf.concat(axis=2, values=[blue - mean[2], green - mean[1], red - mean[0]])
     #image_resize = image_resize - mean_array
@@ -142,7 +144,10 @@ def create_model():
         keras.layers.Dense(1000, activation=tf.nn.softmax)
     ])
     '''
-    model = keras.applications.resnet50.ResNet50(weights='imagenet', include_top=True, input_shape= (224,224,3), classes=1000)
+    # model = keras.applications.resnet50.ResNet50(weights='imagenet', include_top=True, input_shape= (224,224,3), classes=1000)
+    # model = keras.applications.mobilenet_v2.MobileNetV2(weights='imagenet', include_top=True, input_shape= (224,224,3), classes=1000)
+    model = keras.applications.inception_v3.InceptionV3(weights='imagenet', include_top=True, input_shape= (299,299,3), classes=1000)
+
     #model = keras.applications.resnet50.ResNet50(weights=None, include_top=True, input_shape= (224,224,3), classes=1000)
     #model.compile(optimizer=keras.optimizers.Adam(),
     model.compile(optimizer='adam',

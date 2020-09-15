@@ -6,10 +6,10 @@ import tensorflow as tf
 import numpy as np
 import cv2
 
-IMG_SIZE = 224
+IMG_SIZE = 299
 dim = (IMG_SIZE, IMG_SIZE)
 mean = [103.939, 116.779, 123.68]
-mean_array = np.zeros((224, 224, 3))
+mean_array = np.zeros((IMG_SIZE, IMG_SIZE, 3))
 mean_array[..., 0] = mean[0]
 mean_array[..., 1] = mean[1]
 mean_array[..., 2] = mean[2]
