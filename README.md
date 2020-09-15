@@ -51,11 +51,11 @@ ds = image_label_ds.shuffle(buffer_size=5000)
 BATCH_SIZE and buffer_size can be reduced if you don't have a GPU with big GPU memory.<br />
 You can change ***weights*** from:<br />
 ```
-model = keras.applications.resnet50.ResNet50(weights='imagenet', include_top=True, input_shape= (224,224,3), classes=1000)
+model = keras.applications.inception_v3.InceptionV3(weights='imagenet', include_top=True, input_shape= (299,299,3), classes=1000)
 ```
 to
 ```
-model = keras.applications.resnet50.ResNet50(weights=None, include_top=True, input_shape= (224,224,3), classes=1000)
+model = keras.applications.inception_v3.InceptionV3(weights=None, include_top=True, input_shape= (299,299,3), classes=1000)
 ```
 if you would like to train from scratch not a pre-trained weights.<br />
 ***Note: If use a pre-trained weights it takes about 3 round(epoch) to acheive a 60%+ accuracy. If you train from scratch you may need more than 20 epoches to get a good accuracy. And if you train from scratch you can modify the _read_img_function function to use a more simple pre-processing. In the meanwhile you should also modify the calibration code and deploy code accordingly. For now the _read_img_function just uses the same pre-processing operations as the pre-trained model.***<br />
@@ -87,7 +87,7 @@ calib_image_list = "./calibration.txt"
 ```
 ./dnnc.sh
 ```
-5. Copy the generated ELF file from ***imagenet_vai_tf_train2deploy/x86/resnet50/dpu_resnet50_0.elf*** to ***imagenet_vai_tf_train2deploy/arm/tf_resnet50/model_for_zcu102/*** folder.<br />
+5. Copy the generated ELF file from ***imagenet_vai_tf_train2deploy/x86/inceptionv3/dpu_inceptionv3_0.elf*** to ***imagenet_vai_tf_train2deploy/arm/tf_inceptionv3/model_for_zcu102/*** folder.<br />
 
 ### Deploy model on ZCU102 board<br />
 
@@ -97,19 +97,19 @@ calib_image_list = "./calibration.txt"
 ```
 tar -xzvf vitis-ai_v1.2_dnndk_sample_img.tar.gz
 ```
-4. Go to the uncompressed folder ***vitis_ai_dnndk_samples*** and transfer ***imagenet_vai_tf_train2deploy/arm/tf_resnet50/*** folder from host to ***vitis_ai_dnndk_samples** folder on board.
+4. Go to the uncompressed folder ***vitis_ai_dnndk_samples*** and transfer ***imagenet_vai_tf_train2deploy/arm/tf_inceptionv3/*** folder from host to ***vitis_ai_dnndk_samples** folder on board.
 5. Go to ***tf_reset50*** and run the following commmand to build the application:
 ```
 ./build.sh zcu102
 ```
 6. Connect board with SSH and enable X11 forward. Run following command to check the result:
 ```
-./tf_resnet50
+./tf_inceptionv3
 ```
 The running result would like below:<br />
 ![renet50_test_result.PNG](/pic_for_readme/renet50_test_result.PNG)<br />
 
-***I don't take much time on the training and comparing the difference between different APIs from training to quantization and deployment. So the result are not in a high accuracy. And you could use other ConvNet to replace the ResNet50 and modify the pre-process functions if necessary***
+***I don't take much time on the training and comparing the difference between different APIs from training to quantization and deployment. So the result are not in a high accuracy. And you could use other ConvNet to replace the inception_v3 and modify the pre-process functions if necessary***
 
 
 
